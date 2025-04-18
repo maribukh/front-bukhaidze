@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./Header.css";
+import logo from "../assets/images/Logotype.svg";
+import search from "../assets/images/icons/search.svg";
 
 export default function Header() {
   const headerRef = useRef(null);
@@ -28,7 +30,14 @@ export default function Header() {
       ref={headerRef}
       className={`header ${hideHeader ? "header--hidden" : ""}`}
     >
-      <div className="logo">LOGO</div>
+      <div className="top-header container">
+        <div className="logo">
+          <img src={logo} alt="site logo" />
+        </div>
+        <div className="search">
+          <img src={search} alt="search-icon" />
+        </div>
+      </div>
       <nav className="nav">
         <ul>
           <li>

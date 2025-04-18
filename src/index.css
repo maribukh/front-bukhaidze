@@ -12,8 +12,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 body {
-  background-color: aliceblue;
+  min-width: 1920px;
+  background-color: #FFFFFF;
   min-height: 100vh;
 }
-

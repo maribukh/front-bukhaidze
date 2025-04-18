@@ -1,3 +1,32 @@
+.container {
+    width: 60.42%;
+    margin: auto;
+}
+
+.header .top-header {
+    padding-top: 1.81rem;
+    padding-bottom: 1.625rem;
+    position: relative;
+}
+
+.header .top-header .logo {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .top-header .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1rem;
+    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 @media (max-width: 1024px) {
     .header {
         display: none;
