@@ -23,8 +23,92 @@
     width: 1rem;
     height: 1rem;
     position: absolute;
+    top: 2.125rem;
+    right: 0;
+}
+
+.header .top-header .search:hover {
+    cursor: pointer;
+}
+
+.header nav {
+    display: flex;
+    align-items: center;
+    padding: 1.25rem 0rem;
+    border: 1px solid #E9E9E9;
+}
+
+.header nav ul {
+    /* width: 28.85%; */
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.header nav li {
+    text-wrap: none;
+}
+
+
+select {
+    outline: none;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+
+.select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.select-hidden-width {
+    position: absolute;
+    visibility: hidden;
+    white-space: nowrap;
+    font-family: 'Inter', sans-serif;
+    padding: 4px;
+}
+
+.select-dynamic {
+    appearance: none;
+    padding: 4px 24px 4px 8px;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+}
+
+.select-dynamic::-ms-expand {
+    display: none;
+}
+
+.arrow-icon {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
     top: 0;
     right: 0;
+}
+
+.select-dynamic,
+button {
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 0px;
+}
+
+
+button {
+    background-color: white;
+    outline: none;
+    border: none;
 }
 
 @media (max-width: 1024px) {

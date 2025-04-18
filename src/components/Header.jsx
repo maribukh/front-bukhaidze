@@ -3,6 +3,57 @@ import "./Header.css";
 import logo from "../assets/images/Logotype.svg";
 import search from "../assets/images/icons/search.svg";
 
+const ArrowIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="10"
+    height="6"
+    viewBox="0 0 10 6"
+    fill="none"
+  >
+    <path d="M1 1L5 5L9 1" stroke="black" strokeLinecap="square" />
+  </svg>
+);
+
+function AutoWidthSelect({ options, defaultValue }) {
+  const [value, setValue] = useState(defaultValue);
+  const spanRef = useRef(null);
+  const selectRef = useRef(null);
+
+  useEffect(() => {
+    if (spanRef.current && selectRef.current) {
+      const width = spanRef.current.offsetWidth + 25; 
+      selectRef.current.style.width = `${width}px`;
+    }
+  }, [value]);
+
+  return (
+    <div className="select-wrapper">
+      <span ref={spanRef} className="select-hidden-width">
+        {value}
+      </span>
+      <select
+        ref={selectRef}
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        className="select-dynamic"
+        style={{
+          paddingRight: "24px", // пространство для стрелки
+        }}
+      >
+        {options.map((opt, index) => (
+          <option key={index} value={opt}>
+            {opt}
+          </option>
+        ))}
+      </select>
+      <div className="arrow-icon">
+        <ArrowIcon />
+      </div>
+    </div>
+  );
+}
+
 export default function Header() {
   const headerRef = useRef(null);
   const [hideHeader, setHideHeader] = useState(false);
@@ -41,34 +92,29 @@ export default function Header() {
       <nav className="nav">
         <ul>
           <li>
-            <select name="" id="">
-              <option value="">Demos</option>
-            </select>
+            <AutoWidthSelect options={["Demos"]} defaultValue="Demos" />
           </li>
           <li>
-            <select name="" id="">
-              <option value="post">Post</option>
-              <option value="">Post Header</option>
-              <option value="">Post Layout</option>
-              <option value="">Share Button</option>
-              <option value="">Gallery Post</option>
-              <option value="">Video Post</option>
-            </select>
+            <AutoWidthSelect
+              options={[
+                "Post",
+                "Post Header",
+                "Post Layout",
+                "Share Button",
+                "Gallery Post",
+                "Video Post",
+              ]}
+              defaultValue="Post"
+            />
           </li>
           <li>
-            <select name="" id="">
-              <option value="">Features</option>
-            </select>
+            <AutoWidthSelect options={["Features"]} defaultValue="Features" />
           </li>
           <li>
-            <select name="category" id="">
-              <option value="">Category</option>
-            </select>
+            <AutoWidthSelect options={["Category"]} defaultValue="Category" />
           </li>
           <li>
-            <select name="" id="">
-              <option value="">Shop</option>
-            </select>
+            <AutoWidthSelect options={["Shop"]} defaultValue="Shop" />
           </li>
           <li>
             <button className="btn btn-header">Buy Now</button>
