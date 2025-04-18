@@ -27,8 +27,13 @@
     right: 0;
 }
 
-.header .top-header .search:hover {
+.header .top-header .search:hover,
+button:hover {
     cursor: pointer;
+}
+
+button:hover, select:hover {
+    color: #EB0028;
 }
 
 .header nav {
@@ -88,10 +93,13 @@ select:hover {
 }
 
 .arrow-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     width: 1rem;
     height: 1rem;
-    top: 0;
+    top: 4px;
     right: 0;
 }
 
@@ -110,6 +118,8 @@ button {
     outline: none;
     border: none;
 }
+
+
 
 @media (max-width: 1024px) {
     .header {

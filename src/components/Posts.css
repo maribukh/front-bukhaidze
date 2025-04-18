@@ -1,0 +1,90 @@
+.posts {
+    margin-top: 3rem;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.post-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #9b9b9b;
+}
+
+.post-meta .category {
+    color: #EB0028;
+    font-family: Roboto;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    line-height: 0.8125rem;
+    letter-spacing: 0px;
+}
+
+.post-timeline {
+    display: flex;
+    align-items: center;
+    color: black;
+    gap: 0.3125rem;
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    letter-spacing: 0px;
+    margin-bottom: 1rem;
+}
+
+.post-timeline p {
+    font-weight: 500;
+}
+
+.post-timeline span {
+    color: #9B9B9B;
+}
+
+.post-title {
+    color: black;
+    font-family: Roboto;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: 0px;
+    font-size: 1.25rem;
+    margin: 1rem 0rem;
+}
+
+.post-description {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 20px;
+    letter-spacing: 0px;
+    color: #929292;
+}
+
+@media (max-width: 1024px) {
+    .posts-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -13,7 +13,7 @@
 }
 
 body {
-  min-width: 1920px;
+  max-width: 1920px;
   background-color: #FFFFFF;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;

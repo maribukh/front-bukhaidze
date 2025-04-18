@@ -38,7 +38,7 @@ function AutoWidthSelect({ options, defaultValue }) {
         onChange={(e) => setValue(e.target.value)}
         className="select-dynamic"
         style={{
-          paddingRight: "24px", // пространство для стрелки
+          paddingRight: "24px", 
         }}
       >
         {options.map((opt, index) => (
@@ -83,7 +83,9 @@ export default function Header() {
     >
       <div className="top-header container">
         <div className="logo">
-          <img src={logo} alt="site logo" />
+          <a href="#">
+            <img src={logo} alt="site logo" />
+          </a>
         </div>
         <div className="search">
           <img src={search} alt="search-icon" />
