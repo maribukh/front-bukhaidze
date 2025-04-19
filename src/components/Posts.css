@@ -5,7 +5,9 @@
 .posts-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    column-gap: 2.5rem;
+    row-gap: 3rem;
+    margin-bottom: 10.31rem;
 }
 
 .post-card {
@@ -28,7 +30,7 @@
     color: #9b9b9b;
 }
 
-.post-meta .category {
+.post-meta .tags {
     color: #EB0028;
     font-family: Roboto;
     font-weight: 700;
@@ -68,7 +70,7 @@
     margin: 1rem 0rem;
 }
 
-.post-description {
+.post-text {
     font-family: Roboto;
     font-weight: 400;
     font-size: 0.875rem;
@@ -77,14 +79,72 @@
     color: #929292;
 }
 
+.post-author {
+    color: black !important;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 0.75rem;
+    line-height: 0.75rem;
+    letter-spacing: 0px;
+}
+
+
 @media (max-width: 1024px) {
+    .container {
+        width: 90%;
+    }
+
     .posts-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 }
 
 @media (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+
+    .header .top-header {
+        padding-top: 2rem;
+    }
+
+    .posts {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-top: 0rem;
+    }
+
     .posts-grid {
         grid-template-columns: 1fr;
+    }
+
+    .post-title {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+
+    .post-text {
+        font-size: 0.85rem;
+        line-height: 1.3;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        width: 89.33%;
+    }
+
+    .posts {
+        padding-left: 0rem;
+        padding-right: 0rem;
+    }
+
+    a {
+        width: 48.51%;
+    }
+
+    .logo img {
+        width: 100%;
     }
 }

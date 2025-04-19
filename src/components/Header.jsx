@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 import logo from "../assets/images/Logotype.svg";
 import search from "../assets/images/icons/search.svg";
+import menu from "../assets/images/icons/menu-burger.svg";
 
 const ArrowIcon = () => (
   <svg
@@ -22,7 +23,7 @@ function AutoWidthSelect({ options, defaultValue }) {
 
   useEffect(() => {
     if (spanRef.current && selectRef.current) {
-      const width = spanRef.current.offsetWidth + 25; 
+      const width = spanRef.current.offsetWidth + 25;
       selectRef.current.style.width = `${width}px`;
     }
   }, [value]);
@@ -38,7 +39,7 @@ function AutoWidthSelect({ options, defaultValue }) {
         onChange={(e) => setValue(e.target.value)}
         className="select-dynamic"
         style={{
-          paddingRight: "24px", 
+          paddingRight: "24px",
         }}
       >
         {options.map((opt, index) => (
@@ -82,6 +83,11 @@ export default function Header() {
       className={`header ${hideHeader ? "header--hidden" : ""}`}
     >
       <div className="top-header container">
+        <div className="burger-menu d-none">
+          <a href="#">
+            <img src={menu} alt="menu" />
+          </a>
+        </div>
         <div className="logo">
           <a href="#">
             <img src={logo} alt="site logo" />

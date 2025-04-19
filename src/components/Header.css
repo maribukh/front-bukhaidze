@@ -32,7 +32,8 @@ button:hover {
     cursor: pointer;
 }
 
-button:hover, select:hover {
+button:hover,
+select:hover {
     color: #EB0028;
 }
 
@@ -119,10 +120,40 @@ button {
     border: none;
 }
 
+.burger-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.d-none {
+    display: none;
+}
 
 
 @media (max-width: 1024px) {
-    .header {
+    .header nav {
         display: none;
+    }
+
+    .header .burger-menu {
+        display: block;
+    }
+
+    .header .top-header .logo {
+        width: 100%
+    }
+
+    .header .top-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .posts {
+        margin-top: 0rem;
+    }
+
+    .posts-grid {
+        margin-bottom: 1rem !important;
     }
 }
