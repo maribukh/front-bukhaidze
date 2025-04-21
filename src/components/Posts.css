@@ -79,6 +79,32 @@
     color: #929292;
 }
 
+.post-text:hover {
+    cursor: pointer;
+    color: #cfcece;
+}
+
+.post-title:hover {
+    cursor: pointer;
+    color: rgb(51, 50, 50);
+}
+
+.post-timeline:hover {
+    cursor: pointer;
+    color: rgb(51, 50, 50);
+}
+
+.post-meta .tags:hover {
+    cursor: pointer;
+    color: #a8273d;
+}
+
+.post-card img:hover {
+    transition: 0.5s;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 .post-author {
     color: black !important;
     font-family: Roboto;
@@ -86,6 +112,49 @@
     font-size: 0.75rem;
     line-height: 0.75rem;
     letter-spacing: 0px;
+}
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup {
+    background: white;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.popup h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.popup p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #444;
+}
+
+.popup-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #888;
 }
 
 
@@ -136,11 +205,12 @@
     }
 
     .posts {
+        margin: auto;
         padding-left: 0rem;
         padding-right: 0rem;
     }
 
-    a {
+    .header a {
         width: 48.51%;
     }
 
