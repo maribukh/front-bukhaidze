@@ -135,14 +135,14 @@
 }
 
 .popup h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
+    color: black;
+    margin: 1rem 0rem;
+    font-size: 1rem;
     font-weight: 700;
 }
 
 .popup p {
-    margin-top: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: #444;
 }
 

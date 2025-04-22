@@ -57,7 +57,8 @@ export default function Posts() {
               ✕
             </button>
             <h2>{selectedPost.title}</h2>
-            <p>{selectedPost.description}</p>
+            {/* <img src={post.img_2x} alt="" /> */}
+            <p>{selectedPost.text}</p>
           </div>
         </div>
       )}

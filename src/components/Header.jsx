@@ -5,7 +5,6 @@ import search from "../assets/images/icons/search.svg";
 import menuIcon from "../assets/images/icons/menu-burger.svg";
 import closeIcon from "../assets/images/icons/close.svg";
 
-
 const ArrowIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -64,7 +63,6 @@ function AutoWidthSelect({ options, defaultValue }) {
   );
 }
 
-
 export default function Header() {
   const headerRef = useRef(null);
   const [hideHeader, setHideHeader] = useState(false);
@@ -101,9 +99,15 @@ export default function Header() {
     <>
       <header
         ref={headerRef}
-        className={`header ${hideHeader ? "header--hidden" : ""}`}
+        className={`header ${hideHeader ? "header--hidden" : ""} ${
+          isMobileMenuOpen ? "menu-open" : ""
+        }`}
       >
-        <div className="top-header container">
+        <div
+          className={`top-header container ${
+            isMobileMenuOpen ? "hide-logo" : ""
+          }`}
+        >
           <div
             className="burger-menu"
             onClick={() => setIsMobileMenuOpen(true)}
@@ -159,7 +163,7 @@ export default function Header() {
       />
 
       <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
-        <div className="mobile-menu-header">
+        <div className="mobile-menu-header pdng-bottom">
           <div className="logo">
             <a href="#">
               <img src={logo} alt="site logo" />
@@ -172,10 +176,10 @@ export default function Header() {
           />
         </div>
         <ul className="mobile-nav-links">
-          <li>
+          <li className="pdng-bottom">
             <AutoWidthSelect options={["Demos"]} defaultValue="Demos" />
           </li>
-          <li>
+          <li className="pdng">
             <AutoWidthSelect
               options={[
                 "Post",
@@ -188,16 +192,16 @@ export default function Header() {
               defaultValue="Post"
             />
           </li>
-          <li>
+          <li className="pdng">
             <AutoWidthSelect options={["Features"]} defaultValue="Features" />
           </li>
-          <li>
+          <li className="pdng">
             <AutoWidthSelect options={["Category"]} defaultValue="Category" />
           </li>
-          <li>
+          <li className="pdng">
             <AutoWidthSelect options={["Shop"]} defaultValue="Shop" />
           </li>
-          <li>
+          <li className="pdng brd-none">
             <button className="btn btn-header">Buy Now</button>
           </li>
         </ul>
