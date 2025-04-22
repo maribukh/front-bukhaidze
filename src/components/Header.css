@@ -99,39 +99,40 @@ select:hover {
 }
 
 .select-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    position: relative;
+    display: inline-block;
 }
 
 .select-hidden-width {
     position: absolute;
     visibility: hidden;
     white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    font-family: Roboto, sans-serif;
     font-size: 16px;
-    padding: 4px;
+    font-weight: 500;
+    padding: 4px 8px;
 }
 
 .select-dynamic {
     appearance: none;
     background-color: white;
     border: none;
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-weight: 500;
     font-size: 16px;
     line-height: 16px;
-    letter-spacing: 0;
-    padding: 4px 0 4px 8px;
-    box-sizing: border-box;
+    padding: 4px 26px 4px 8px;
+    box-sizing: content-box;
 }
 
 .arrow-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1rem;
-    height: 1rem;
+    position: absolute;
+    top: 0;
+    right: 6px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 10px;
+    height: 6px;
 }
 
 .select-dynamic,
@@ -182,7 +183,7 @@ button {
 .mobile-menu {
     position: fixed;
     top: 0;
-    left: -300px;
+    left: -100%;
     width: 85.33%;
     height: 100%;
     background: white;
@@ -206,6 +207,10 @@ button {
     padding-right: 1.25rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #E9E9E9;
+}
+
+.header.menu-open .logo {
+    display: none;
 }
 
 
@@ -277,5 +282,14 @@ button {
     .select-dynamic,
     select {
         padding: 0;
+    }
+
+}
+
+@media (min-width: 1025px) {
+
+    .mobile-menu,
+    .mobile-overlay {
+        display: none !important;
     }
 }

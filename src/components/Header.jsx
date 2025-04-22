@@ -5,29 +5,32 @@ import search from "../assets/images/icons/search.svg";
 import menuIcon from "../assets/images/icons/menu-burger.svg";
 import closeIcon from "../assets/images/icons/close.svg";
 
-const ArrowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="10"
-    height="6"
-    viewBox="0 0 10 6"
-    fill="none"
-  >
-    <path d="M1 1L5 5L9 1" stroke="black" strokeLinecap="square" />
-  </svg>
-);
-
 function AutoWidthSelect({ options, defaultValue }) {
   const [value, setValue] = useState(defaultValue);
   const spanRef = useRef(null);
   const selectRef = useRef(null);
 
-  useEffect(() => {
+  const updateWidth = () => {
     if (spanRef.current && selectRef.current) {
-      const width = spanRef.current.offsetWidth + 28; // ширина текста + место для стрелки
-      selectRef.current.style.width = `${width}px`;
+      const textWidth = spanRef.current.offsetWidth;
+      const arrowOffset = 20;
+      selectRef.current.style.width = `${textWidth + arrowOffset}px`;
     }
+  };
+
+  useEffect(() => {
+    updateWidth();
   }, [value]);
+
+  useEffect(() => {
+    const timeout = setTimeout(updateWidth, 0);
+    return () => clearTimeout(timeout);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   return (
     <div className="select-wrapper">
