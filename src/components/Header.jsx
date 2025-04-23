@@ -4,14 +4,13 @@ import logo from "../assets/images/Logotype.svg";
 import menuIcon from "../assets/images/icons/menu-burger.svg";
 import closeIcon from "../assets/images/icons/close.svg";
 import AutoWidthSelect from "./AutoWidthSelect";
-import Search from "./Search"; 
+import Search from "./Search";
 
-export default function Header() {
+export default function Header({ searchQuery, setSearchQuery }) {
   const headerRef = useRef(null);
   const [hideHeader, setHideHeader] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +47,9 @@ export default function Header() {
         }`}
       >
         <div
-          className={`top-header container ${isMobileMenuOpen ? "hide-logo" : ""}`}
+          className={`top-header container ${
+            isMobileMenuOpen ? "hide-logo" : ""
+          }`}
         >
           <div
             className="burger-menu"
@@ -64,6 +65,7 @@ export default function Header() {
           <Search
             searchQuery={searchQuery}
             onSearchChange={setSearchQuery}
+            isMenuOpen={isMobileMenuOpen}
           />
         </div>
 

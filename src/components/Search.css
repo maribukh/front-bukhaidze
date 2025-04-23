@@ -1,0 +1,125 @@
+.search-container {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    gap: 0.5rem;
+}
+
+.search-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.search-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+    max-width: 200px;
+}
+
+.header.menu-open .search-container {
+    pointer-events: none;
+}
+
+.header.menu-open .search-icon {
+    filter: brightness(0) saturate(100%) invert(45%) sepia(2%) saturate(0%) hue-rotate(177deg) brightness(92%) contrast(84%);
+    opacity: 0.6;
+}
+
+.mobile-search-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.mobile-search-box {
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.mobile-search-input {
+    padding: 1rem;
+    font-size: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.mobile-search-close {
+    position: absolute;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-search-modal {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(255, 255, 255, 0.5);
+        /* полупрозрачный */
+        backdrop-filter: blur(8px);
+        /* мягкий блур */
+        -webkit-backdrop-filter: blur(8px);
+        z-index: 2000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: fadeIn 0.3s ease-in;
+    }
+
+    .mobile-search-box {
+        background: white;
+        width: 90%;
+        max-width: 400px;
+        padding: 1rem;
+        border-radius: 12px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .close-mobile-search {
+        background: #efefef;
+        border: none;
+        padding: 0.6rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .close-mobile-search:hover {
+        background: #ddd;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}

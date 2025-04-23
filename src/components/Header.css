@@ -9,6 +9,7 @@
 }
 
 .header {
+    width: 100%;
     position: sticky;
     top: 0;
     background-color: white;
@@ -70,7 +71,8 @@ select:hover {
     display: flex;
     align-items: center;
     padding: 1.25rem 0rem;
-    border: 1px solid #E9E9E9;
+    border-top: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
 }
 
 .header nav ul {
@@ -142,6 +144,7 @@ button {
     font-size: 16px;
     line-height: 16px;
     letter-spacing: 0px;
+    padding: 0rem;
 }
 
 button {
