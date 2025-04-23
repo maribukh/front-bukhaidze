@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import "./Posts.css";
 import PostCard from "./PostCard";
 import Popup from "./Popup";
@@ -13,8 +14,13 @@ export default function Posts({ searchQuery }) {
       .then((data) => setPosts(data));
   }, []);
 
-  const openPost = (post) => setSelectedPost(post);
-  const closePopup = () => setSelectedPost(null);
+  const openPost = (post) => {
+    setSelectedPost(post);
+  };
+
+  const closePopup = () => {
+    setSelectedPost(null);
+  };
 
   const filteredPosts = posts.filter((post) => {
     const search = searchQuery.toLowerCase();
@@ -27,15 +33,16 @@ export default function Posts({ searchQuery }) {
   return (
     <section className="posts container">
       <div className="posts-grid">
-        {filteredPosts.length > 0 ? (
-          filteredPosts
-            .slice(0, 9)
-            .map((post, index) => (
-              <PostCard key={index} post={post} onClick={openPost} />
-            ))
-        ) : (
-          <div className="no-results">No results found</div>
-        )}
+        {filteredPosts.slice(0, 9).map((post, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.4, delay: index * 0.05 }}
+          >
+            <PostCard post={post} onClick={openPost} />
+          </motion.div>
+        ))}
       </div>
 
       {selectedPost && <Popup post={selectedPost} onClose={closePopup} />}

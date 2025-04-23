@@ -70,23 +70,38 @@ export default function Header({ searchQuery, setSearchQuery }) {
         </div>
 
         <nav className="nav">
-          <ul>
+          <ul className="main-ul">
             <li>
               <AutoWidthSelect options={["Demos"]} defaultValue="Demos" />
             </li>
-            <li>
-              <AutoWidthSelect
-                options={[
-                  "Post",
-                  "Post Header",
-                  "Post Layout",
-                  "Share Button",
-                  "Gallery Post",
-                  "Video Post",
-                ]}
-                defaultValue="Post"
-              />
+
+            <li className="nav-item with-submenu">
+              <span className="nav-link">
+                Post
+                <svg
+                  className="submenu-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="black"
+                    strokeLinecap="square"
+                  />
+                </svg>
+              </span>
+              <ul className="submenu">
+                <li>Post Header</li>
+                <li>Share Buttons</li>
+                <li>Post Layout</li>
+                <li>Gallery Post</li>
+                <li>Video Post</li>
+              </ul>
             </li>
+
             <li>
               <AutoWidthSelect options={["Features"]} defaultValue="Features" />
             </li>

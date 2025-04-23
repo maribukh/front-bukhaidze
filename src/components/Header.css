@@ -75,12 +75,16 @@ select:hover {
     border-bottom: 1px solid #E9E9E9;
 }
 
-.header nav ul {
+.header ul {
+    list-style: none;
+}
+
+.header nav .main-ul {
     margin: auto;
     display: flex;
     align-items: center;
     gap: 32px;
-    list-style: none;
+    padding: 0rem;
 }
 
 .header nav li {
@@ -145,6 +149,57 @@ button {
     line-height: 16px;
     letter-spacing: 0px;
     padding: 0rem;
+}
+
+.nav-item.with-submenu {
+    position: relative;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 1rem;
+    color: black;
+}
+
+.submenu-arrow {
+    transition: transform 0.3s ease;
+}
+
+.nav-item.with-submenu:hover .submenu-arrow {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    background: white;
+    border: 1px solid #E9E9E9;
+    display: none;
+    flex-direction: column;
+
+    padding: 1.25rem;
+    min-width: 176px;
+    z-index: 10;
+}
+
+.nav-item.with-submenu:hover .submenu {
+    display: flex;
+}
+
+.submenu li {
+    color: black;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.submenu li:hover {
+    color: #EB0028;
 }
 
 button {
