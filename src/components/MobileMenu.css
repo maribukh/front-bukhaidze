@@ -1,0 +1,130 @@
+.mobile-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.mobile-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85.33%;
+    height: 100%;
+    background: white;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-menu.open {
+    left: 0;
+    border-right: 1px solid #E9E9E9;
+}
+
+.mobile-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.mobile-menu-header .logo img {
+    width: 88.95%;
+}
+
+.mobile-menu-header img {
+    cursor: pointer;
+    width: 20px;
+}
+
+.mobile-nav-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.81rem;
+    padding: 0rem 1.25rem;
+}
+
+.mobile-nav-links li {
+    color: black;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-bottom: 1px solid #E9E9E9;
+    font-family: Roboto;
+}
+
+.mobile-nav-links li img {
+    margin-left: 0.25rem;
+    transition: transform 0.3s ease;
+}
+
+.mobile-nav-links .submenu-arrow.rotate {
+    transform: rotate(180deg);
+}
+
+/* Submenu styles */
+.mobile-menu-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.mobile-menu-item {
+    flex-direction: column;
+    border-bottom: 1px solid #E9E9E9;
+}
+
+.mobile-submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    flex-direction: column;
+    background-color: #fafafa;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+}
+
+.mobile-submenu.open {
+    max-height: 500px;
+}
+
+.mobile-submenu-item {
+    padding: 0.75rem 0rem;
+    font-size: 0.875rem !important;
+    color: #4d4a4a !important;
+    border-bottom: 1px solid #E9E9E9;
+    transition: color 0.2s ease;
+    text-align: left;
+}
+
+.mobile-submenu-item:hover {
+    color: #EB0028;
+}
+
+.brd-none {
+    border: none !important;
+}
+
+.pdng {
+    padding: 1rem 0rem;
+}
+
+.pdng-bottom {
+    padding-bottom: 1rem;
+}

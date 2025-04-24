@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import "./Header.css";
 import logo from "../assets/images/Logotype.svg";
 import menuIcon from "../assets/images/icons/menu-burger.svg";
-import closeIcon from "../assets/images/icons/close.svg";
-import AutoWidthSelect from "./AutoWidthSelect";
 import Search from "./Search";
+import NavItemWithSubmenu from "./NavItemWithSubmenu";
+import MobileMenu from "./MobileMenu";
 
 export default function Header({ searchQuery, setSearchQuery }) {
   const headerRef = useRef(null);
@@ -13,7 +13,7 @@ export default function Header({ searchQuery, setSearchQuery }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    function handleScroll() {
       const currentScrollY = window.scrollY;
       if (currentScrollY > 200 && currentScrollY > lastScrollY) {
         setHideHeader(true);
@@ -21,18 +21,18 @@ export default function Header({ searchQuery, setSearchQuery }) {
         setHideHeader(false);
       }
       setLastScrollY(currentScrollY);
-    };
+    }
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
   useEffect(() => {
-    const handleResize = () => {
+    function handleResize() {
       if (window.innerWidth > 1024) {
         setIsMobileMenuOpen(false);
       }
-    };
+    }
 
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -71,46 +71,29 @@ export default function Header({ searchQuery, setSearchQuery }) {
 
         <nav className="nav">
           <ul className="main-ul">
-            <li>
-              <AutoWidthSelect options={["Demos"]} defaultValue="Demos" />
-            </li>
-
-            <li className="nav-item with-submenu">
-              <span className="nav-link">
-                Post
-                <svg
-                  className="submenu-arrow"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="10"
-                  height="6"
-                  viewBox="0 0 10 6"
-                  fill="none"
-                >
-                  <path
-                    d="M1 1L5 5L9 1"
-                    stroke="black"
-                    strokeLinecap="square"
-                  />
-                </svg>
-              </span>
-              <ul className="submenu">
-                <li>Post Header</li>
-                <li>Share Buttons</li>
-                <li>Post Layout</li>
-                <li>Gallery Post</li>
-                <li>Video Post</li>
-              </ul>
-            </li>
-
-            <li>
-              <AutoWidthSelect options={["Features"]} defaultValue="Features" />
-            </li>
-            <li>
-              <AutoWidthSelect options={["Category"]} defaultValue="Category" />
-            </li>
-            <li>
-              <AutoWidthSelect options={["Shop"]} defaultValue="Shop" />
-            </li>
+            <NavItemWithSubmenu
+              title="Demos"
+              items={["Home 1", "Home 2", "Home 3", "Home 4", "Home 5"]}
+            />
+            <NavItemWithSubmenu
+              title="Post"
+              items={[
+                "Post Header",
+                "Post Layout",
+                "Share Buttons",
+                "Gallery Post",
+                "Video Post",
+              ]}
+            />
+            <NavItemWithSubmenu
+              title="Features"
+              items={["Dark Mode", "Sticky Sidebar"]}
+            />
+            <NavItemWithSubmenu
+              title="Category"
+              items={["Technology", "Lifestyle"]}
+            />
+            <NavItemWithSubmenu title="Shop" items={["Templates", "Plugins"]} />
             <li>
               <button className="btn btn-header">Buy Now</button>
             </li>
@@ -118,55 +101,10 @@ export default function Header({ searchQuery, setSearchQuery }) {
         </nav>
       </header>
 
-      <div
-        className={`mobile-overlay ${isMobileMenuOpen ? "open" : ""}`}
-        onClick={() => setIsMobileMenuOpen(false)}
+      <MobileMenu
+        isOpen={isMobileMenuOpen}
+        onClose={() => setIsMobileMenuOpen(false)}
       />
-
-      <div className={`mobile-menu ${isMobileMenuOpen ? "open" : ""}`}>
-        <div className="mobile-menu-header pdng-bottom">
-          <div className="logo">
-            <a href="#">
-              <img src={logo} alt="site logo" />
-            </a>
-          </div>
-          <img
-            src={closeIcon}
-            alt="close"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-        </div>
-        <ul className="mobile-nav-links">
-          <li className="pdng-bottom">
-            <AutoWidthSelect options={["Demos"]} defaultValue="Demos" />
-          </li>
-          <li className="pdng">
-            <AutoWidthSelect
-              options={[
-                "Post",
-                "Post Header",
-                "Post Layout",
-                "Share Button",
-                "Gallery Post",
-                "Video Post",
-              ]}
-              defaultValue="Post"
-            />
-          </li>
-          <li className="pdng">
-            <AutoWidthSelect options={["Features"]} defaultValue="Features" />
-          </li>
-          <li className="pdng">
-            <AutoWidthSelect options={["Category"]} defaultValue="Category" />
-          </li>
-          <li className="pdng">
-            <AutoWidthSelect options={["Shop"]} defaultValue="Shop" />
-          </li>
-          <li className="pdng brd-none">
-            <button className="btn btn-header">Buy Now</button>
-          </li>
-        </ul>
-      </div>
     </>
   );
 }
