@@ -187,7 +187,7 @@
     animation: fadeIn 0.3s ease-in;
 }
 
-@media (max-width: 1320px) {
+@media (max-width: 1500px) {
     .container {
         width: 80%;
     }
@@ -214,8 +214,6 @@
     }
 
     .posts {
-        padding-left: 1rem;
-        padding-right: 1rem;
         margin-top: 0rem;
     }
 
