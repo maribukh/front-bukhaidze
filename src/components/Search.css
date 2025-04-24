@@ -57,6 +57,7 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     outline: none;
+    background-color: white;
 }
 
 .mobile-search-close {
@@ -74,9 +75,7 @@
         position: fixed;
         inset: 0;
         background-color: rgba(255, 255, 255, 0.5);
-        /* полупрозрачный */
         backdrop-filter: blur(8px);
-        /* мягкий блур */
         -webkit-backdrop-filter: blur(8px);
         z-index: 2000;
         display: flex;
@@ -110,6 +109,8 @@
     .close-mobile-search:hover {
         background: #ddd;
     }
+
+    
 
     @keyframes fadeIn {
         from {
