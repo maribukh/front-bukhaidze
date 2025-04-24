@@ -187,6 +187,11 @@
     animation: fadeIn 0.3s ease-in;
 }
 
+@media (max-width: 1320px) {
+    .container {
+        width: 80%;
+    }
+}
 
 @media (max-width: 1024px) {
     .container {
@@ -201,7 +206,7 @@
 
 @media (max-width: 600px) {
     .container {
-        width: 100%;
+        width: 89.6%;
     }
 
     .header .top-header {
@@ -230,9 +235,6 @@
 }
 
 @media (max-width: 375px) {
-    .container {
-        width: 89.33%;
-    }
 
     .posts {
         margin: auto;

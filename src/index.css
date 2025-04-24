@@ -11,9 +11,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   max-width: 1920px;
   background-color: #FFFFFF;
   min-height: 100vh;
   font-family: 'Inter', sans-serif;
+  margin: 0;
 }

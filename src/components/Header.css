@@ -167,7 +167,6 @@ button {
     transition: 2ms;
 }
 
-/* Responsive: desktop only */
 @media (max-width: 1024px) {
     .header nav {
         display: none;

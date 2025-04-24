@@ -1,5 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.mobile-menu {
+  overflow-x: hidden;
+}
+
+.main-ul,
+.header,
+.mobile-nav-links {
+  max-width: 100%;
+  overflow-x: hidden;
 }
